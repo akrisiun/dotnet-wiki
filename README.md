@@ -10,11 +10,57 @@ practical problems
 ```
 {
     "buildOptions": {
-        "define": ["TEST"]
-        ,  "nowarn": ["CS0168", "CS0219"]
+    
+       "compile": ["**/*.cs", "../sources/*.cs"]
 
+    
+       ,  "define": ["TEST"]
+       ,  "nowarn": ["CS0168", "CS0219"]
+       , "platform": "x86"
+       , "debugType": "full"
+       , "xmlDoc": false
+       , "exclude": ["bin/**", "obj/**"]
+    }
+    , "packOptions": {
+        "repository": {
+            "url": "http://github.com/dotnet/corefx"
+        }
     }
 
+"libraries": {
+    "Microsoft.AspNetCore.Mvc.Core/1.1.0-beta5": {
+      "type": "project",
+      "path": "../Microsoft.AspNetCore.Mvc.Core/project.json"
+    },
+    "Newtonsoft.Json/9.2.0-beta1": {
+      "type": "project",
+      "path": "../../vendor/Newtonsoft.Json/src/Newtonsoft.Json/project.json"
+    },
+},
+
+"frameworks": {
+    "netcoreapp1.0": {
+        "buildOptions": {
+            "define": ["FOO", "BIZ"]
+        }
+    }
+}
+
+"frameworks": {
+    "net451": {
+        "frameworkAssemblies": {
+            "System.Runtime": {
+                "type": "build",
+                "version": "4.0.0"
+            }
+        }
+    }
+    
+"frameworks": {
+  "netcoreapp1.0": {
+     "imports": "portable-net45+win8"
+  }
+}     
 
 "buildOptions": {
   "allowUnsafe": true,
