@@ -7,15 +7,25 @@ Core of all projects:
 
 [https://github.com/aspnet/HttpAbstractions/tree/dev/src](https://github.com/aspnet/HttpAbstractions/tree/dev/src)
 
-[https://github.com/aspnet/HttpAbstractions/tree/dev/src/Microsoft.AspNetCore.Http.Abstractions](https://github.com/aspnet/HttpAbstractions/tree/dev/src/Microsoft.AspNetCore.Http.Abstractions)
+sequence:  Http.Features, Http.Abstractions
+[https://github.com/aspnet/HttpAbstractions/tree/dev/src/Microsoft.AspNetCore.Http.Features](https://github.com/aspnet/HttpAbstractions/tree/dev/src/Microsoft.AspNetCore.Http.Features/project.json)
+[https://github.com/aspnet/HttpAbstractions/tree/dev/src/Microsoft.AspNetCore.Http.Abstractions](https://github.com/aspnet/HttpAbstractions/tree/dev/src/Microsoft.AspNetCore.Http.Abstractions/project.json)
+[https://github.com/aspnet/HttpAbstractions/tree/dev/src/Microsoft.AspNetCore.Http](https://github.com/aspnet/HttpAbstractions/tree/dev/src/Microsoft.AspNetCore.Http)
+[https://github.com/aspnet/HttpAbstractions/tree/dev/src/Microsoft.AspNetCore.WebUtilities/project.json](https://github.com/aspnet/HttpAbstractions/tree/dev/src/Microsoft.AspNetCore.WebUtilities/project.json)
+```
+  AspNetCore.Http:
+  "dependencies": {
+    "Microsoft.AspNetCore.Http.Abstractions": "1.1.0-*",
+    "Microsoft.AspNetCore.WebUtilities": "1.1.0-*",
+    "Microsoft.Extensions.ObjectPool": "1.1.0-*",
+    "Microsoft.Extensions.Options": "1.1.0-*",
+    "Microsoft.Net.Http.Headers": "1.1.0-*",
+    "System.Buffers": "4.0.0-*"
+```    
 
 [https://github.com/aspnet/HttpAbstractions/tree/dev/src/Microsoft.Net.Http.Headers](https://github.com/aspnet/HttpAbstractions/tree/dev/src/Microsoft.Net.Http.Headers)
 [https://github.com/aspnet/HttpAbstractions/tree/dev/src/Microsoft.AspNetCore.Owin](https://github.com/aspnet/HttpAbstractions/tree/dev/src/Microsoft.AspNetCore.Owin)
-[https://github.com/aspnet/HttpAbstractions/tree/dev/src/Microsoft.AspNetCore.Http](https://github.com/aspnet/HttpAbstractions/tree/dev/src/Microsoft.AspNetCore.Http)
-[https://github.com/aspnet/HttpAbstractions/tree/dev/src/Microsoft.AspNetCore.Http.Features](https://github.com/aspnet/HttpAbstractions/tree/dev/src/Microsoft.AspNetCore.Http.Features)
-
 [https://github.com/aspnet/HttpAbstractions/tree/dev/src/Microsoft.AspNetCore.Http.Extensions](https://github.com/aspnet/HttpAbstractions/tree/dev/src/Microsoft.AspNetCore.Http.Extensions)
-
 
 ## ASPNET
 
