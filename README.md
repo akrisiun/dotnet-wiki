@@ -2,8 +2,10 @@
 Personal .NET clr, asp.net core web notes  
 [Sources-MvcCore.md](Sources-MvcCore.md)
 
-# project.json
+# .csproj for .NET core (sdk libraries)  
+https://docs.microsoft.com/en-us/dotnet/core/tools/project-json-to-csproj
 
+# project.json (obsolete)
 https://docs.microsoft.com/en-us/dotnet/articles/core/tools/project-json
 
 practical problems
