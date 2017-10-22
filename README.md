@@ -8,7 +8,10 @@ Personal .NET clr, asp.net core web notes
 
 ### CSPROJ:
 
-https://gist.github.com/akrisiun/ef660c54b1eecd3276221a639fabdf7a
+https://gist.github.com/akrisiun/ef660c54b1eecd3276221a639fabdf7a  
+
+OSX path:  
+export FrameworkPathOverride=/Library/Frameworks/Mono.framework/Versions/5.0.1/lib/mono/4.5   
 
 Usefull properties:  
 GenerateAssemblyInfo  
@@ -66,6 +69,16 @@ AllowUnsafeBlocks
 
 dotnet add package Microsoft.TargetingPack.NETFramework.v4.5.1 --version 1.0.1 --source https://dotnet.myget.org/F/dotnet-core/api/v3/index.json
 
+```
+dotnet add package Microsoft.TargetingPack.NETFramework.v4.6   --version 1.0.1 --source https://dotnet.myget.org/F/dotnet-core/api/v3/index.json
+export FrameworkPathOverride=/Library/Frameworks/Mono.framework/Versions/5.0.1/lib/mono/4.5   
+
+## show cfg
+ls /Library/Frameworks/Mono.framework/Versions/5.0.1/lib/mono/
+dotnet --info | grep "RID"
+export FrameworkPathOverride=/Library/Frameworks/Mono.framework/Versions/5.0.1/lib/mono/4.5
+export RuntimeIdentifier=$(dotnet --info | grep "RID" | awk '{print $2}')
+```
 
 
 ### csproj for .NET core (sdk libraries)
