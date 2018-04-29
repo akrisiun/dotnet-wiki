@@ -11,7 +11,9 @@ Personal .NET clr, asp.net core web notes
 https://gist.github.com/akrisiun/ef660c54b1eecd3276221a639fabdf7a  
 
 OSX path:  
-export FrameworkPathOverride=/Library/Frameworks/Mono.framework/Versions/5.0.1/lib/mono/4.5   
+export FrameworkPathOverride=/Library/Frameworks/Mono.framework/Versions/Current/lib/mono/4.5  
+pwsh  
+$env:FrameworkPathOverride="/Library/Frameworks/Mono.framework/Versions/Current/lib/mono/4.5"  
 
 Usefull properties:  
 GenerateAssemblyInfo  
@@ -80,6 +82,32 @@ export FrameworkPathOverride=/Library/Frameworks/Mono.framework/Versions/5.0.1/l
 export RuntimeIdentifier=$(dotnet --info | grep "RID" | awk '{print $2}')
 ```
 
+### Cross platform powershell build
+
+build.ps1
+```
+$msbuild="C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\MSBuild.exe"
+if (-not (test-path $msbuild)) {
+    $msbuild="$env:ProgramFiles (x86)\MSBuild\15.0\Bin\MSBuild.exe"
+}
+$os = "win32"
+if ($PSVersionTable.Platform -eq "Unix") {
+    $os = "Unix"
+}
+
+if ($os -eq "win32" -and -not (test-path $msbuild)) {
+    # Install-Module VSSetup -Scope CurrentUser -Force
+    $vspath = (Get-VSSetupInstance -All -Prerelease | Select-VSSetupInstance).InstallationPath
+    $msbuild="$vspath\MSBuild\15.0\Bin\MSBuild.exe"
+} else {
+    $msbuild = "msbuild"
+    if ($PSItem) { 
+        # $PSVersionTable.OS.BeginsWith("Darwin")
+        $env:FrameworkPathOverride="/Library/Frameworks/Mono.framework/Versions/Current/lib/mono/4.5"
+    }
+    # dotnet add package Microsoft.TargetingPack.NETFramework.v4.6.2  --version 1.0.1 --source https://dotnet.myget.org/F/dotnet-core/api/v3/index.json
+}
+```
 
 ### csproj for .NET core (sdk libraries)
 <https://docs.microsoft.com/en-us/dotnet/core/tools/project-json-to-csproj>
