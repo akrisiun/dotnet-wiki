@@ -18,8 +18,27 @@ $env:FrameworkPathOverride="/Library/Frameworks/Mono.framework/Versions/Current/
 Usefull properties:  
 GenerateAssemblyInfo  
 EnableDefaultCompileItems  
-AllowUnsafeBlocks
+AllowUnsafeBlocks  
+AppendTargetFrameworkToOutputPath
 ```
+AllowUnsafeBlocks AppendTargetFrameworkToOutputPath
+<EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <!-- Condition="'$(OS)' == 'Windows_NT'" -->
+    <TargetFrameworks>net451</TargetFrameworks>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <ContinueOnError>true</ContinueOnError>
+    <GenerateResourceMSBuildArchitecture>CurrentArchitecture</GenerateResourceMSBuildArchitecture>    
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+
+
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFrameworks>net451</TargetFrameworks>
