@@ -54,6 +54,7 @@ GenerateAssemblyInfo
 EnableDefaultCompileItems  
 AllowUnsafeBlocks  
 AppendTargetFrameworkToOutputPath
+IgnoreTargetFrameworkAttributeVersionMismatch
 ```
 AllowUnsafeBlocks AppendTargetFrameworkToOutputPath
 <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
