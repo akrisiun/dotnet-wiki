@@ -6,6 +6,40 @@ Personal .NET clr, asp.net core web notes
 ### project.json (obsolete)
 <https://docs.microsoft.com/en-us/dotnet/articles/core/tools/project-json>
 
+### CSPROJ workarounds:
+
+```
+    <!-- dotnet workarounds -->
+    <IgnoreTargetFrameworkAttributeVersionMismatch>true</IgnoreTargetFrameworkAttributeVersionMismatch>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <RestorePackages>true</RestorePackages>
+    <ContinueOnError>true</ContinueOnError>
+    
+<Project>
+  <Sdk Name="Microsoft.NET.Sdk" ToolsVersion="15.0" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    
+    <TargetFramework>net461</TargetFramework>
+    <EnableDefaultCompileItems>true</EnableDefaultCompileItems>
+
+# TEST unit:
+
+  <ItemGroup>
+    <PackageReference Include="Antlr" Version="3.5.0.2" />
+    <PackageReference Include="Castle.Core" Version="4.2.1" />
+    <PackageReference Include="Moq" Version="4.8.2" />
+
+    <PackageReference Include="MSTest.TestAdapter" Version="1.2.0" />
+    <PackageReference Include="MSTest.TestFramework" Version="1.2.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.6.0" />
+    <PackageReference Include="Microsoft.VisualStudio.TestPlatform.ObjectModel" Version="14.0.0" />
+    
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+...
+```
+
 ### CSPROJ:
 
 https://gist.github.com/akrisiun/ef660c54b1eecd3276221a639fabdf7a  
