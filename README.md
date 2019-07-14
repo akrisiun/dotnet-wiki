@@ -5,7 +5,8 @@ Personal .NET clr, asp.net core web notes
 
 ## BUILD for VsCode with error output:
 
-```dotnet msbuild /p:GenerateFullPaths=true;Configuration=Debug; /v:m
+```
+dotnet msbuild /p:GenerateFullPaths=true;Configuration=Debug; /v:m
 ```
 
 ### project.json (obsolete)
