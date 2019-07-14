@@ -3,6 +3,11 @@ Personal .NET clr, asp.net core web notes
 [Sources-MvcCore.md](Sources-MvcCore.md)
 [project-json.md](dotnet/project-json.md) - obsolete
 
+## BUILD for VsCode with error output:
+
+```dotnet msbuild /p:GenerateFullPaths=true;Configuration=Debug; /v:m
+```
+
 ### project.json (obsolete)
 <https://docs.microsoft.com/en-us/dotnet/articles/core/tools/project-json>
 
